@@ -1,0 +1,253 @@
+### all cake list api
+
+GET http://127.0.0.1:8000/cakes/
+# Authorization: Basic user user
+
+### create a cake
+POST http://127.0.0.1:8000/cakes/
+# Authorization: Basic admin admin
+# Authorization: token c4a559c91198f1342c14a53a73db0d4274e218f5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzNzY5NzM1LCJpYXQiOjE3OTMzMzc3MzUsImp0aSI6ImU3ODAyODY2ZTkxYzRjYTk5YmE5MTBmZWY2MDIxM2EzIiwidXNlcl9pZCI6IjEifQ.LHfQV8baF1hMgs3iD7r3fLWpnVW8AlXSRdXoFS4-b0E
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Chocolate Cake 
+--abc
+Content-Disposition: form-data; name="description"
+
+Rich chocolate cake
+--abc
+Content-Disposition: form-data; name="photo"; filename="image.jpg"
+Content-Type: image/jpeg
+
+< .\image.jpg
+--abc
+Content-Disposition: form-data; name="category"
+
+1
+--abc
+Content-Disposition: form-data; name="shape"
+
+1
+--abc
+Content-Disposition: form-data; name="weight"
+
+1
+--abc
+Content-Disposition: form-data; name="price"
+
+1250
+--abc--
+
+### cake retrieve api
+GET http://127.0.0.1:8000/cakes/1/
+
+
+### cake patch api
+PATCH  http://127.0.0.1:8000/cakes/1/
+Content-Type: application/json
+
+{
+    "name": "Red Velvet",
+    "description": "Yummy yummyyy",
+    "price": 1500
+}
+
+### cake delete api
+DELETE http://127.0.0.1:8000/cakes/1/
+
+
+
+
+
+
+### category get
+GET http://127.0.0.1:8000/categories/
+Authorization: Basic admin admin
+
+### create a category
+POST http://127.0.0.1:8000/categories/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Birthday cake
+--abc
+
+###
+POST http://127.0.0.1:8000/categories/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Wedding cake
+--abc--
+
+### category retrieve api
+GET http://127.0.0.1:8000/categories/2/
+Authorization: Basic admin admin
+
+### category patch api
+PATCH http://127.0.0.1:8000/categories/2/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Birthday cakes
+--abc--
+
+### category delete api
+DELETE http://127.0.0.1:8000/categories/1/
+Authorization: Basic admin admin
+
+
+
+
+
+
+
+
+### shape get api
+GET http://127.0.0.1:8000/shape/
+Authorization: Basic admin admin
+
+### create a shape
+POST http://127.0.0.1:8000/shape/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Round
+--abc
+
+###
+POST http://127.0.0.1:8000/shape/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Rectangle
+--abc--
+
+### shape retrieve api
+GET http://127.0.0.1:8000/shape/2/
+Authorization: Basic admin admin
+
+### shape patch api
+PATCH http://127.0.0.1:8000/shape/2/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Diamond
+--abc--
+
+### shape delete api
+DELETE http://127.0.0.1:8000/shape/2/
+Authorization: Basic admin admin
+
+
+
+
+
+
+
+
+
+
+### weight get api
+GET http://127.0.0.1:8000/weight/
+Authorization: Basic admin admin
+
+
+### create a weight
+POST http://127.0.0.1:8000/weight/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+1 kg
+--abc
+
+###
+POST http://127.0.0.1:8000/weight/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+1.5kg
+--abc--
+
+###
+POST http://127.0.0.1:8000/weight/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+1.9kg
+--abc--
+
+### weight retrieve api
+GET http://127.0.0.1:8000/weight/2/
+Authorization: Basic admin admin
+
+### weight patch api
+PATCH http://127.0.0.1:8000/weight/4/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+2kg
+--abc--
+
+### weight delete api
+DELETE http://127.0.0.1:8000/weight/4/
+Authorization: Basic admin admin
+
+
+
+
+### login api
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"admin"
+}
+
+
+
+
+### register api
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username":"lebronejames202656@mailinator.com",
+    "first_name":"Lebrone James",
+    "role":"User",
+    "password":"lebronejames"
+}

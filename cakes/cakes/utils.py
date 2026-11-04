@@ -1,0 +1,17 @@
+
+
+from django.core.mail import EmailMultiAlternatives
+
+from django.conf import settings
+
+from django.template.loader import render_to_string
+
+def send_mail(recipient,subject,template,context):
+
+    mail = EmailMultiAlternatives(from_email=settings.EMAIL_HOST_USER,subject=subject,to=[recipient])
+
+    content = render_to_string(template,context)
+
+    mail.attach_alternative(content,mimetype='text/html')
+
+    mail.send()
